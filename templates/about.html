@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block loginstatus %}
+{% if user %}
+<div class="container well">
+<div class="btn-group pull-right">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="icon-user"></i> {{ user }}
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="/editprofile">Profile</a></li>
+              <li class="divider"></li>
+              <li><a href="/logout">Log Out</a></li>
+            </ul>
+          </div>
+   {% endif %}  
+{% endblock %}
+
+{% block bodycontent %}
+       <div class="hero-unit">   
+            <div>
+<p>the e-Polling platform is designed to help you receive opinions and views from any audinece of your choosing, in three 
+    simple steps - creat an account (or use gmail if you have one), create a question and get replies (via SMS) to your account
+    </p>
+            </div>
+
+          </div>  
+  </div>      
+{% endblock %}
+

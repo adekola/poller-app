@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block loginstatus %}
+{% if user %}
+<div class="btn-group pull-right">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="icon-user"></i> {{ user }}
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="/editprofile">Profile</a></li>
+              <li class="divider"></li>
+              <li><a href="/logout">Log Out</a></li>
+            </ul>
+          </div>
+   {% endif %}  
+{% endblock %}
+            
+
+{% block bodycontent %}
+<div class="container well">
+
+<!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="span2">
+          
+              <h2>Welcome to the e-Poller platform!</h2>
+        <p>...where polling for views and opinions can is as easy as sending an SMS</p>
+        <p><a class="btn btn-primary btn-large" href="/about">Learn more &raquo;</a></p>
+        
+      </div>
+       <form class="form-signin" action="/register" method="post">
+        <h2 class="form-signin-heading">Please Register Here</h2>
+        <input type="text" class="input-block-level" placeholder="Full Name" name="fn">
+        <input type="text" class="input-block-level" placeholder="Email address" name="em">
+        <input type="password" class="input-block-level" placeholder="Password" name="pw">
+         <input type="password" class="input-block-level" placeholder="Password again" name="pwa">  
+         {% if userexists %}
+         <div class="alert alert-error">
+  <span>{{error_msg}}</span> 
+</div>
+        {% endif %} 
+         {% if pwmismatch %}
+         <div class="alert alert-error">
+  <span>{{error_msg}}</span> 
+</div>
+        {% endif %}
+        {% if noinfo %}
+         <div class="alert alert-error">
+  <span>{{error_msg}}</span> 
+</div>
+        {% endif %} 
+        <button class="btn btn-large btn-primary" type="submit">Register</button>
+       <div>        
+           <div class="alert alert-info">
+        Already have an account? Please <a href="/login">Login</a>
+        </div>
+        </div>
+
+      </form>
+   </div>     
+{% endblock %}

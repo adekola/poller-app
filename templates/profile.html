@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block loginstatus %}
+{% if user %}
+<div class="btn-group pull-right">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="icon-user"></i> {{ user }}
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="/editprofile">Profile</a></li>
+              <li class="divider"></li>
+              <li><a href="/logout">Log Out</a></li>
+            </ul>
+          </div>
+   {% endif %}  
+{% endblock %}
+
+{% block bodycontent %}
+               
+            <div class="alert" align="center">
+ <h3>You can edit your profile here</h3>
+ <div align="center">
+          
+       
+        <input type="text" class="input-block-level" placeholder="Full Name" name="fn" value="{{ fullname }}"/>
+        <input type="text"  class="input-block-level uneditable-input" placeholder="Email address" name="em" value="{{ email }}">
+        <input type="password" class="input-block-level" placeholder="Password" name="pw" value="{{ password }}"> 
+         <input type="password" class="input-block-level" placeholder="Password again" name="{{ password }}">  
+         
+        <button class="btn btn-large btn-primary" type="submit" onclick="window.location = '/editprofile';">Save Changes</button>
+        {% if updatesuccess %}
+<div class="alert alert-success">
+ <p> Your profile was successfully updated. More questions to <a href="/createquestion">create?</a></p>
+</div>
+{% endif %}
+{% if pwmismatch %}
+<div class="alert alert-success">
+ <p> {{ error_msg}} </p>
+</div>
+{% endif %}
+       </div>
+            
+ </div>
+
+        
+{% endblock %}
+
+

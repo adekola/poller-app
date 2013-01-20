@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block bodycontent %}
+<div class="container well">
+
+<!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="span2">
+        <h1>Welcome to the e-Poller platform!</h1>
+        <p>...where polling for views and opinions can is as easy as sending an SMS</p>
+        <p><a class="btn btn-primary btn-large" href="/about">Learn more &raquo;</a></p>
+</div>
+        
+         <form class="form-signin" action="/login" method="post">
+        <h2 class="form-signin-heading">Please Login Here</h2>
+         <input type="text" class="input-block-level" placeholder="Email Address" name="em">
+        <input type="password" class="input-block-level" placeholder="Password" name="pw">   
+        {% if noCredos %}
+        <div class="alert alert-error">
+  <span>{{error_msg}}</span> 
+</div>
+        {% endif %}
+       
+       {% if usernotfound %}
+        <div class="alert alert-error">
+  <span>{{error_msg}}</span> 
+</div>
+        {% endif %}
+        <br/>
+        
+        <button class="btn btn-large btn-primary" type="submit">Login</button>
+        <br/>
+        <div class="alert alert-info">
+        <p>Don't have an account? We'll be glad to have you <a href="/register">sign up</a></p>
+        </div>
+      </form>
+      <hr>
+        
+        
+        </div>
+{% endblock %}
+
+        
