@@ -1,5 +1,22 @@
 {% extends "base.html" %}
 
+
+{% block menuitems %}
+<div class="nav-collapse collapse">
+            <ul class="nav">
+           <li> 
+             <a href="/">Home</a></li>
+             <li>
+              <a href="/about">About</a></li>
+              <li>
+              <a href="/createquestion">Create Question</a></li>
+              <li class="active">
+              <a href="/getresponses">View Responses</a></li>
+               <li>
+              <a href="/editprofile">Edit Profile</a></li>
+               </ul>
+                </div>
+  
 {% block loginstatus %}
 {% if user %}
 <div class="btn-group pull-right">
@@ -15,12 +32,18 @@
           </div>
    {% endif %}  
 {% endblock %}
+  {% endblock %}
 
-{% block body_content %}
-                <h1>Welcome to the ePolling platform</h1>
-            <div>
+{% block bodycontent %}
+            <div class="hero-unit">
+               
+               <div align="center">
+                   <p>
+                    View responses from your responders here
+                </p>
 
-            </div>
-
+               </div>
+           </div>
+        
             
 {% endblock %}

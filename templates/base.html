@@ -88,7 +88,6 @@
 
 
   <body>
-
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -98,31 +97,17 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="/">e-Poller</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-           <li 
-           {% ifequal path "/index" %}
-            class="active"
-            {% endifequal %}>
-             <a href="/">Home</a></li>
-             <li
-             {% ifequal path "/about" %}
-             class = "selected"
-             {% endifequal %}>
-             
-              <a href="/about">About</a></li>
-            </ul>
-            
-             
-            
-            {% block loginstatus %}
+          {% block menuitems %}
+          
+              {% block loginstatus %}
             
             {% endblock %}
             
+              {% endblock %}
           </div><!--/.nav-collapse -->
         </div>
       </div>
-    </div>
+   
 
     
       

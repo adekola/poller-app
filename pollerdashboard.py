@@ -77,7 +77,12 @@ class editprofile(webapp.RequestHandler):
 class createQuestion(webapp.RequestHandler):
     
     def get(self):
-        render(self, "create_question.html")
+       data = {}
+       #check if there's a username entry in the session
+       self.session = Session()
+    
+       data['user'] =  self.session.get('username', None)
+       render(self, "create_question.html",data)
 
     def post(self):
         self.response.out.write()
@@ -85,7 +90,12 @@ class createQuestion(webapp.RequestHandler):
 class getResponses(webapp.RequestHandler):
     
     def get(self):
-        render(self, "view_responses.html")
+       data = {}
+       #check if there's a username entry in the session
+       self.session = Session()
+    
+       data['user'] =  self.session.get('username', None)
+       render(self, "view_responses.html",data)
 
     def post(self):
         #get input from the forms, using the name = value from the input fields
@@ -94,7 +104,14 @@ class getResponses(webapp.RequestHandler):
         
 class about(webapp.RequestHandler):
     def get(self):
-        render(self,"about.html")  
+        
+       data = {}
+       #check if there's a username entry in the session
+       self.session = Session()
+    
+       data['user'] =  self.session.get('username', None)
+       
+       render(self,"about.html",data)  
         
         
 

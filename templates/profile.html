@@ -1,5 +1,22 @@
 {% extends "base.html" %}
 
+
+
+{% block menuitems %}
+<div class="nav-collapse collapse">
+            <ul class="nav">
+           <li> 
+             <a href="/">Home</a></li>
+             <li>
+              <a href="/about">About</a></li>
+               <li>
+              <a href="/createquestion">Create Question</a></li>
+              <li>
+              <a href="/getresponses">View Responses</a></li>
+               <li class="active">
+              <a href="/editprofile">Edit Profile</a></li>
+               </ul>
+                </div>
 {% block loginstatus %}
 {% if user %}
 <div class="btn-group pull-right">
@@ -15,6 +32,7 @@
           </div>
    {% endif %}  
 {% endblock %}
+{% endblock %}
 
 {% block bodycontent %}
                
@@ -24,7 +42,7 @@
           
        
         <input type="text" class="input-block-level" placeholder="Full Name" name="fn" value="{{ fullname }}"/>
-        <input type="text"  class="input-block-level uneditable-input" placeholder="Email address" name="em" value="{{ email }}">
+        <input type="text" class="input-block-level uneditable-input" placeholder="Email address" name="em" value="{{ email }}">
         <input type="password" class="input-block-level" placeholder="Password" name="pw" value="{{ password }}"> 
          <input type="password" class="input-block-level" placeholder="Password again" name="{{ password }}">  
          
